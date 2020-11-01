@@ -18,9 +18,9 @@ export class AuthService {
 		private ngAuth: AngularFireAuth,
 		private router: Router
   ) {
-		this.user$ = ngAuth.authState.pipe(switchMap(user =>
-    	user ? firestore.doc(`users/${user.uid}`).valueChanges() : of(null)
-		));
+		this.user$ = ngAuth.authState.pipe(switchMap(user => {
+    	return user ? firestore.doc(`users/${user.uid}`).valueChanges() : of(null)
+		}));
   }
 
 	async signIn(email: string, password: string): Promise<void> {
@@ -28,17 +28,17 @@ export class AuthService {
 			await this.ngAuth.signInWithEmailAndPassword(email, password);
 			this.router.navigate(['/home']);
 		}
-		throw Error('Invalid Credentials');
+		throw Error('Credentials Required');
 	}
 
 	async signUp(dto: SignUserDto): Promise<void> {
 		if (dto.displayName && dto.email && dto.password) {
 			const credential = await this.ngAuth
-        		.createUserWithEmailAndPassword(dto.email, dto.password);
+        .createUserWithEmailAndPassword(dto.email, dto.password);
 
 			await Promise.all([
 				credential.user.updateProfile({ displayName: dto.displayName }),
-				this.updateUser(credential.user, ''),
+				this.updateUser(credential.user),
 				this.router.navigate(['home'])
 			]);
 		}
@@ -56,42 +56,33 @@ export class AuthService {
 	private async oAuthSignIn(provider: any): Promise<void> {
 		const credential = await this.ngAuth.signInWithPopup(provider);
 		if (credential.additionalUserInfo.isNewUser) {
-			this.updateUser(credential.user, '');
+			this.updateUser(credential.user);
 		}
 		this.router.navigate(['/home']);
   }
 
-	async updateUser(user: any, address: string): Promise<void> {
+	async updateUser(user: any, address?: string, phoneNumber?: string): Promise<void> {
 		const userRef = this.firestore.doc(`users/${user.uid}`);
 
-		const payload: User = {
+		const userPayload: User = {
 			displayName: user.displayName,
 			email: user.email,
 			photoURL: user.photoURL,
 			uid: user.uid,
-      address,
+			address: '',
+			phoneNumber: '',
+			isAdmin: false
 		};
 
-		userRef.set(payload, { merge: true });
+		if (address) userPayload.address = address;
+		if (phoneNumber) userPayload.phoneNumber = phoneNumber;
+
+		await userRef.set(userPayload, { merge: true });
 	}
 
 	async logout(): Promise<void> {
 		this.ngAuth.signOut();
-		this.router.navigate(['login']);
+		this.router.navigate(['/login']);
   }
-
-	private async createAdmin() {
-		const email = 'panesar.pb08@gmail.com';
-		const password = 'Admin@EShop';
-		const displayName = 'Sukhpreet Singh';
-
-		const credential = await this.ngAuth
-      		.createUserWithEmailAndPassword(email, password);
-
-		await Promise.all([
-			credential.user.updateProfile({ displayName }),
-			this.updateUser(credential.user, ''),
-		]);
-	}
 
 }

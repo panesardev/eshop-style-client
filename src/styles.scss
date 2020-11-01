@@ -1,8 +1,14 @@
 @import './variables.scss';
+@import './assets/css/bootstrap.utilities.css';
 
 * {
 	outline: none;
 	font-family: 'Open Sans', sans-serif;
+	text-decoration: none;
+}
+
+html, body {
+	height: 100%;
 }
 
 body {
@@ -14,7 +20,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 a, button, input, textarea {
-	border: 3px;
+	border-radius: 3px;
+	border: .1rem solid transparent;
+}
+
+a:hover, button:hover {
+	cursor: pointer;
 }
 
 .bg {
@@ -32,3 +43,7 @@ a, button, input, textarea {
 	padding: 0;
 	border-bottom: .1rem solid #e3e7eb;
 }
+
+.center { text-align: center; }
+.left { text-align: left; }
+.right { text-align: right; }

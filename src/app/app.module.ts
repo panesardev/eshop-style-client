@@ -15,13 +15,14 @@ import { LoginComponent } from './routes/login/login.component';
 import { SignUpComponent } from './routes/sign-up/sign-up.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 import { AdminComponent } from './routes/admin/admin.component';
-
-import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth.guard';
-import { AdminGuard } from './auth/admin.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
+
+import { AdminGuard } from './auth/admin.guard';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+import { UserService } from './user/user.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ViewProductComponent } from './components/view-product/view-product.com
   providers: [
     AuthService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

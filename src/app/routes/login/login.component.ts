@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,10 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +24,11 @@ export class LoginComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  async phone() {
+    await this.userService.updatePhoneNumber('4372190390');
+    await this.userService.updateAddress('41 Ozner Court, Brampton ON, Canada');
   }
 
 }

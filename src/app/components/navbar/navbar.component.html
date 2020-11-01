@@ -1,4 +1,62 @@
-<div>
-	<button routerLink="/auth/login">Login</button>
-	<button routerLink="/auth/sign-up">Sign Up</button>
-</div>
+<nav class="navbar">
+	<div class="side-bar" #sidebar>
+		<div class="close-container">
+			<div class="brand-container">
+				<a class="brand" routerLink="/home">EShopFree</a>
+			</div>
+			<div>
+				<button class="toggler" (click)="close()">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+		</div>
+		<div class="mt-5">
+			<div class="my-3 center">
+				<a routerLinkActive="link-active" routerLink="/user/profile" (click)="close()" class="link">Profile</a>
+			</div>
+			<div class="my-3 center" *ngIf="user ? user.isAdmin : false">
+				<a routerLinkActive="link-active" routerLink="/admin" (click)="close()" class="link">Admin</a>
+			</div>
+			<div class="my-3 center">
+				<a routerLinkActive="link-active" routerLink="/auth/login" (click)="close()" class="link">Login</a>
+			</div>
+			<div class="my-3 center">
+				<a routerLinkActive="link-active" routerLink="/auth/sign-up" (click)="close()" class="link">Sign up</a>
+			</div>
+			<div class="my-3 center">
+				<a (click)="close();auth.logout()" class="link">Logout</a>
+			</div>
+			<div class="my-3 center">
+				<a routerLinkActive="link-active" routerLink="/about" (click)="close()" class="link">About</a>
+			</div>
+			<div class="my-3 center">
+				<a routerLinkActive="link-active" routerLink="/help"	(click)="close()" class="link">Help</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="top-bar shadow"> 
+		<div class="toggler-container">
+			<button class="toggler" (click)="open()">
+				<i class="fas fa-bars"></i>
+			</button>
+		</div> 
+		<div class="brand-container">
+			<a class="brand" routerLink="/home">EShopFree</a>
+		</div>
+		<div class="options-container">
+			<img *ngIf="user" [src]="user.photoURL" alt="DP">
+		</div>
+		<div class="spacing"></div>
+		<div class="route-container">
+			<a class="link ml-4" routerLinkActive="link-active" routerLink="/home">Home</a>
+			<a *ngIf="user ? user.isAdmin : false" class="link ml-4" routerLinkActive="link-active" routerLink="/admin">Admin</a>
+			<a class="link ml-4" routerLinkActive="link-active" routerLink="/user/profile">Profile</a>
+			<a class="link ml-4" routerLinkActive="link-active" routerLink="/auth/login">Login</a>
+			<a class="link ml-4" routerLinkActive="link-active" routerLink="/auth/sign-up">Signup</a>
+			<a class="link ml-4" (click)="auth.logout()">Logout</a>
+			<a class="link ml-4" routerLinkActive="link-active" routerLink="/about">About</a>
+			<img class="ml-4" *ngIf="user" [src]="user.photoURL" alt="DP">
+		</div>
+	</div>
+</nav>

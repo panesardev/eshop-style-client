@@ -30,7 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@angular/fire/firestore",
+              "@firebase/auth"
+            ]
           },
           "configurations": {
             "production": {

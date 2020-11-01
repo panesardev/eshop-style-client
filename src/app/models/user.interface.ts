@@ -3,8 +3,8 @@ export interface User {
 	displayName?: string;
 	email?: string;
 	photoURL?: string;
+	
 	phoneNumber?: string;
-
 	address?: string;
 	isAdmin?: boolean;
 }
