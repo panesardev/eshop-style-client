@@ -1,1 +1,15 @@
-<p>home works!</p>
+<section>
+	<div class="hero mt-5 mb-2">
+		<h1 class="title">Welcome to <span class="brand">EShopStyle</span></h1>
+		<p class="disc">Shop anything you want with style.</p>
+	</div>
+	<div class="divider"></div>
+	<div class="my-3">
+		<p class="heading">Featured</p>
+		<div class="collection" *ngIf="featured$ | async as featured">
+			<div *ngFor="let product of featured.products">
+				<app-product [product]="product"></app-product>
+			</div>
+		</div>
+	</div>
+</section>

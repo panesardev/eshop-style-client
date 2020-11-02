@@ -1,1 +1,35 @@
-<p>admin works!</p>
+<section>
+	<h1>Admin file upload</h1>
+	<div>
+		<form ngNativeValidate (ngSubmit)="uploadProduct()">
+			<div>
+				<label>Upload Picture of product<br>
+					<input type="file" name="productPicture" (change)="onFileSelect($event.target.files)">
+				</label>
+			</div>
+			<div>
+				<label>Product name<br>
+					<input type="text" name="name" [(ngModel)]="product.name">
+				</label>
+			</div>
+			<div>
+				<label>Description<br>
+					<input type="text" name="description" [(ngModel)]="product.description">
+				</label>
+			</div>
+			<div>
+				<label>Prize<br>
+					<input type="text" name="price" [(ngModel)]="product.price">
+				</label>
+			</div>
+			<div>
+				<label>Quantity<br>
+					<input type="text" name="quantity" [(ngModel)]="product.quantity">
+				</label>
+			</div>
+			<div>
+				<button type="submit">Uplaod product</button>
+			</div>
+		</form>
+	</div>
+</section>

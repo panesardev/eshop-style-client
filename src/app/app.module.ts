@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
-import { UserService } from './user/user.service';
+import { UserService } from './services/user.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { UserService } from './user/user.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(env.firebase),
     AngularFireAuthModule,
@@ -49,7 +52,8 @@ import { UserService } from './user/user.service';
     AuthService,
     AuthGuard,
     AdminGuard,
-    UserService
+    UserService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
