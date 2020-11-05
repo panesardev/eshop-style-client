@@ -10,6 +10,7 @@ import { environment as env } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { HomeComponent } from './routes/home/home.component';
 import { LoginComponent } from './routes/login/login.component';
@@ -25,6 +26,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
 import { ProductService } from './services/product.service';
+import { DropZoneDirective } from './services/drop-zone.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ProductService } from './services/product.service';
     AdminComponent,
     NavbarComponent,
     ProductComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    DropZoneDirective
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { ProductService } from './services/product.service';
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(env.firebase),
+    AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
