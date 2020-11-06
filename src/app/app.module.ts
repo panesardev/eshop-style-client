@@ -24,9 +24,11 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
-import { UserService } from './services/user.service';
-import { ProductService } from './services/product.service';
-import { DropZoneDirective } from './services/drop-zone.directive';
+import { UserService } from './utils/user.service';
+import { UploadService } from './utils/upload.service';
+import { ProductService } from './utils/product.service';
+import { DropZoneDirective } from './utils/drop-zone.directive';
+import { SaveProductFormComponent } from './components/save-product-form/save-product-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { DropZoneDirective } from './services/drop-zone.directive';
     NavbarComponent,
     ProductComponent,
     ViewProductComponent,
-    DropZoneDirective
+    DropZoneDirective,
+    SaveProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { DropZoneDirective } from './services/drop-zone.directive';
     AuthGuard,
     AdminGuard,
     UserService,
-    ProductService
+    ProductService,
+    UploadService
   ],
   bootstrap: [AppComponent]
 })
