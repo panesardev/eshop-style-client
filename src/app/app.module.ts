@@ -29,6 +29,7 @@ import { UploadService } from './utils/upload.service';
 import { ProductService } from './utils/product.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
 import { SaveProductFormComponent } from './components/save-product-form/save-product-form.component';
+import { SaveProductComponent } from './components/save-product/save-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SaveProductFormComponent } from './components/save-product-form/save-pr
     ProductComponent,
     ViewProductComponent,
     DropZoneDirective,
-    SaveProductFormComponent
+    SaveProductFormComponent,
+    SaveProductComponent
   ],
   imports: [
     BrowserModule,
