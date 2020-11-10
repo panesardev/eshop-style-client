@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "git": "git add . && git commit -m 'com'" 
+    "git": "git add . && git commit -m 'com'"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +23,7 @@
     "@angular/router": "~10.0.2",
     "@types/uuid": "^8.3.0",
     "firebase": "^7.13.1",
+    "ngx-filesize": "^2.0.16",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "uuid": "^8.3.1",

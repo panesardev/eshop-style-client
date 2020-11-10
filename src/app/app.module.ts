@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxFilesizeModule} from 'ngx-filesize';
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -28,7 +29,6 @@ import { UserService } from './utils/user.service';
 import { UploadService } from './utils/upload.service';
 import { ProductService } from './utils/product.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
-import { SaveProductFormComponent } from './components/save-product-form/save-product-form.component';
 import { SaveProductComponent } from './components/save-product/save-product.component';
 
 @NgModule({
@@ -43,7 +43,6 @@ import { SaveProductComponent } from './components/save-product/save-product.com
     ProductComponent,
     ViewProductComponent,
     DropZoneDirective,
-    SaveProductFormComponent,
     SaveProductComponent
   ],
   imports: [
@@ -55,7 +54,8 @@ import { SaveProductComponent } from './components/save-product/save-product.com
     AngularFireModule.initializeApp(env.firebase),
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgxFilesizeModule
   ],
   providers: [
     AuthService,

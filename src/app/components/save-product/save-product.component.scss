@@ -1,0 +1,30 @@
+@import '../../../variables.scss';
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  height: 250px;
+  
+  &.hovering {
+    border: 2px solid $error;
+      color: #dadada !important;
+    }
+    .file-label {
+      font-size: 1.2em;
+    }
+  }
+  
+.drop-border-red {
+  border: 2px dashed $error;
+}
+
+.drop-border-green {
+  border: 2px dashed $green;
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}

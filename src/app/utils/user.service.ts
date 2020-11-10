@@ -9,9 +9,6 @@ export class UserService {
 
   constructor(private auth: AuthService) { 
     auth.user$.subscribe(user => this.user = user);
-    localStorage['user-token'] = JSON.stringify({
-      token: 'hviebgvjdngvjdt'
-    });
   }
 
   async updatePhoneNumber(phoneNumber: string): Promise<void> {

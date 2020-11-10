@@ -16,13 +16,8 @@ export class ProductService {
     this.URL = env.serverURL;
   }
 
-  async submitProduct(product: Product, productPictureFile: File) {
-    const productForm: FormData = new FormData();
-    productForm.append('productPicture', productPictureFile);
-
-    const saved = await this.http.post<Payload<Product>>(this.URL + '/products', product).toPromise();    
-    const res = await this.http.post<Payload<File>>(`${this.URL}/products/${saved.data.id}`, productForm).toPromise();
-    return res
+  saveProduct(product: Product): Observable<Payload<Product>> {
+    return this.http.post<Payload<Product>>(this.URL + '/products', product);
   }
 
   getProducts(type: string): Observable<Collection> {

@@ -1,1 +1,62 @@
-<p>save-product works!</p>
+<h1>Admin save product</h1>
+<form ngNativeValidate (ngSubmit)="save()">
+	<div class="row">
+		<div class="col-md-6">
+			<div *ngIf="validationError"> 
+				<button type="button" (click)="validationError = false">Close</button>
+				<p>Fields marked with (*) are required!</p>
+			</div>		
+			<div>
+				<label>Product name <span class="red">*</span><br>
+					<input type="text" name="name" [(ngModel)]="product.name">
+				</label>
+			</div>
+			<div>
+				<label>Description <span class="red">*</span><br>
+					<input type="text" name="description" [(ngModel)]="product.description">
+				</label>
+			</div>
+			<div>
+				<label>Prize <span class="red">*</span><br>
+					<input type="text" name="price" [(ngModel)]="product.price">
+				</label>
+			</div>
+			<div>
+				<label>Quantity <span class="red">*</span><br>
+					<input type="text" name="quantity" [(ngModel)]="product.quantity">
+				</label>
+			</div>
+			<div>
+				<label>Gender <span class="red">*</span><br>
+					<select name="gender" [(ngModel)]="product.gender">
+						<option value="m">M</option>
+						<option value="f">F</option>
+					</select>
+				</label>
+			</div>
+			<div>
+				<button type="submit" [disabled]="disableSave">Save product</button>
+			</div>
+		</div>
+	
+		<div class="col-md-6">
+			<div [ngClass]="picture ? 'drop-border-green' : 'drop-border-red'" [class.hovering]="isHovering"
+				class="dropzone" dropZone (click)="picInput.click()" 
+				(hovered)="toggleHover($event)" (dropped)="onDrop($event)">
+				<h3>Product Image Required!</h3>
+				<p>Drag and Drop a File here</p>
+			</div>
+			<div class="mt-2">
+				<input #picInput type="file" accept="image/*" name="picture" (change)="fileSelected($event)"> <br>
+				<p>You can choose file from desktop.</p>
+			</div>
+			<div class="mt-2">
+				<img #previewIMG [src]="previewURL" height="60" onload="">
+			</div>
+			<div *ngIf="progress | async as pct" class="mt-2">
+				<progress [value]="pct" max="100"></progress>
+				{{ pct | number }}%
+			</div>
+		</div>
+	</div>
+</form>

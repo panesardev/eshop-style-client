@@ -47,3 +47,11 @@ a:hover, button:hover {
 .center { text-align: center; }
 .left { text-align: left; }
 .right { text-align: right; }
+
+.red {
+	color: $error;
+}
+
+.green {
+	color: $green;
+}

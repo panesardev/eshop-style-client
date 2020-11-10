@@ -1,14 +1,16 @@
 export interface Product {
 	id?: string;
 	name: string;
-	pictureName: string;
+	pictureURL: string;
 	price: number;
 	quantity: number;
-	stars: number;
-	reviews: Array<{
+	stars?: number;
+	gender?: 'm' | 'f';
+	reviews?: Array<{
 		name: string,
 		timeStamp: string,
 		content: string,
+		stars?: number
 	}>;
 	description: string;
 }
