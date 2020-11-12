@@ -5,8 +5,8 @@
 	</div>
 	<div class="divider"></div>
 	<div class="my-3">
-		<p class="heading">Featured</p>
 		<div class="collection" *ngIf="featured$ | async as featured">
+			<p class="heading">{{ featured.name }}</p>
 			<div *ngFor="let product of featured.products">
 				<app-product [product]="product"></app-product>
 			</div>

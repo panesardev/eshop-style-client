@@ -10,12 +10,12 @@ import { ProductService } from 'src/app/utils/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  featured$: Observable<Collection>
+  featured$: Observable<Collection>;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.featured$ = this.productService.getProducts('featured');
+    this.featured$ = this.productService.getCollection('featured');
   }
 
 }

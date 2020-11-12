@@ -13,4 +13,5 @@ export interface Product {
 		stars?: number
 	}>;
 	description: string;
+	type: 'shoe' | 'shirt' | 't-shirt' | 'jean' | 'jogger' | 'short';
 }

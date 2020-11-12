@@ -6,7 +6,7 @@ import {NgxFilesizeModule} from 'ngx-filesize';
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { environment as env } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -26,7 +26,6 @@ import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './utils/user.service';
-import { UploadService } from './utils/upload.service';
 import { ProductService } from './utils/product.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
 import { SaveProductComponent } from './components/save-product/save-product.component';
@@ -51,7 +50,7 @@ import { SaveProductComponent } from './components/save-product/save-product.com
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AngularFireModule.initializeApp(env.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -63,7 +62,6 @@ import { SaveProductComponent } from './components/save-product/save-product.com
     AdminGuard,
     UserService,
     ProductService,
-    UploadService
   ],
   bootstrap: [AppComponent]
 })
