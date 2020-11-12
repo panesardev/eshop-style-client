@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Collection } from 'src/app/models/collection.interface';
+import { CollectionService } from 'src/app/utils/collection.service';
 import { ProductService } from 'src/app/utils/product.service';
 
 @Component({
@@ -12,10 +13,13 @@ export class HomeComponent implements OnInit {
 
   featured$: Observable<Collection>;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private collections: CollectionService,
+    private products: ProductService
+  ) { }
 
   ngOnInit(): void {
-    this.featured$ = this.productService.getCollection('featured');
+    this.featured$ = this.collections.getCollection('featured');
   }
 
 }

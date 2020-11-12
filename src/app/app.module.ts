@@ -21,14 +21,15 @@ import { AdminComponent } from './routes/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
+import { SaveProductComponent } from './components/save-product/save-product.component';
 
 import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './utils/user.service';
+import { CollectionService } from './utils/collection.service';
 import { ProductService } from './utils/product.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
-import { SaveProductComponent } from './components/save-product/save-product.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { SaveProductComponent } from './components/save-product/save-product.com
     AuthGuard,
     AdminGuard,
     UserService,
+    CollectionService,
     ProductService,
   ],
   bootstrap: [AppComponent]

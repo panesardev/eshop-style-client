@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminGuard } from './auth/admin.guard';
 import { AuthGuard } from './auth/auth.guard';
+import { ViewProductComponent } from './components/view-product/view-product.component';
 
 import { AdminComponent } from './routes/admin/admin.component';
 import { HomeComponent } from './routes/home/home.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
   { path: 'home', component: HomeComponent },
+  { path: 'view/product/:id', component: ViewProductComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product.interface';
+import { ProductService } from 'src/app/utils/product.service';
 
 @Component({
   selector: 'app-view-product',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProductComponent implements OnInit {
 
-  constructor() { }
+  product$: Observable<Product>;
+
+  constructor(
+    private products: ProductService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    const id: string = this.route.snapshot.params.id;
+    this.product$ = this.products.getProduct(id);
   }
 
 }
