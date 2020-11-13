@@ -11,16 +11,18 @@ import { SignUserDto } from '../models/sign-user.interface';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  public user$: Observable<User>;
+  user$: Observable<User>;
 
   constructor(
 		private firestore: AngularFirestore,
 		private ngAuth: AngularFireAuth,
 		private router: Router
   ) {
-		this.user$ = ngAuth.authState.pipe(switchMap(user => {
-    	return user ? firestore.doc(`users/${user.uid}`).valueChanges() : of(null)
-		}));
+		this.user$ = ngAuth.authState.pipe(
+			switchMap(user => {
+    		return user ? firestore.doc(`users/${user.uid}`).valueChanges() : of(null)
+			})
+		);
   }
 
 	async signIn(email: string, password: string): Promise<void> {

@@ -77,8 +77,8 @@ export class SaveProductComponent implements OnInit {
   async save(): Promise<void> {
     if (this.validateProduct()) {
       await this.uploadPicture();
-      this.productService.saveProduct(this.product)
-      .subscribe(console.log);
+      this.productService.save(this.product)
+        .subscribe(console.log);
     } else {
       this.validationError = true;
     }

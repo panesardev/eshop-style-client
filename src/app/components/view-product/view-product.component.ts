@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/product.interface';
 import { ProductService } from 'src/app/utils/product.service';
 
@@ -20,7 +21,8 @@ export class ViewProductComponent implements OnInit {
 
   ngOnInit(): void {
     const id: string = this.route.snapshot.params.id;
-    this.product$ = this.products.getProduct(id);
+    this.product$ = this.products.get(id)
+      .pipe(map(payload => payload.success ? payload.data : null));
   }
 
 }

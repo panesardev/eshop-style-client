@@ -13,14 +13,7 @@ export class CollectionService {
 
   constructor(private http: HttpClient) { }
 
-  getCollection(collection: string): Observable<Collection> {
-    return this.http.get<Payload<Collection>>(this.URL + collection).pipe(
-      switchMap(payload => {
-        if (!payload.success) throw Error(payload.timeStamp + ' ' + payload.message);
-        return of(payload.data);
-      }),
-      share()
-    );
-  }
+  get = (name: string) => this.http.get<Payload<Collection>>(this.URL + name)
+    .pipe(share());
 
 }
