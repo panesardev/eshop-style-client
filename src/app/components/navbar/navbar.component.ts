@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/user.interface';
 import { AuthService } from 'src/app/auth/auth.service';
+import { CartService } from 'src/app/utils/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   user: User = { } as User;
 
-  constructor(public auth: AuthService) { 
+  constructor(public auth: AuthService, public cartService: CartService) { 
     this.auth.user$.subscribe(user => this.user = user);
   }
 

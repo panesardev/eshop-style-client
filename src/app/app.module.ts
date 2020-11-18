@@ -29,7 +29,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './utils/user.service';
 import { CollectionService } from './utils/collection.service';
 import { ProductService } from './utils/product.service';
+import { CartService } from './utils/cart.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { DropZoneDirective } from './utils/drop-zone.directive';
     ProductComponent,
     ViewProductComponent,
     DropZoneDirective,
-    SaveProductComponent
+    SaveProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { DropZoneDirective } from './utils/drop-zone.directive';
     UserService,
     CollectionService,
     ProductService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

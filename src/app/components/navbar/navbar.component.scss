@@ -84,6 +84,25 @@ img {
 	display: none;
 }
 
+.cart-items-sm, .cart-items-lg {
+	position: absolute;
+	z-index: 1;
+	padding: 0 .4rem;
+	border-radius: 100px;
+	background-color: $error;
+	color: white;
+}
+
+.cart-items-sm {
+	right: 15px;
+	top: 30px;
+}
+
+.cart-items-lg {
+	right: 55px;
+	top: 30px;
+}
+
 @media (min-width: 868px) {
 	.toggler-container {
 		display: none;

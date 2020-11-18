@@ -12,6 +12,9 @@
 		</div>
 		<div class="mt-5">
 			<div class="my-3 center">
+				<img *ngIf="user" class="mx-0" [src]="user.photoURL" alt="DP">
+			</div>
+			<div class="my-3 center">
 				<a routerLinkActive="link-active" routerLink="/user/profile" (click)="close()" class="link">Profile</a>
 			</div>
 			<div class="my-3 center" *ngIf="user ? user.isAdmin : false">
@@ -45,7 +48,10 @@
 			<a class="brand" routerLink="/home">EShopStyle</a>
 		</div>
 		<div class="options-container">
-			<img *ngIf="user" [src]="user.photoURL" alt="DP">
+			<img src="assets/img/cart.png" alt="CART">
+			<span *ngIf="cartService.cart$ | async as cart" class="cart-items-sm">
+				{{ cart.products.length }}
+			</span>
 		</div>
 		<div class="spacing"></div>
 		<div class="route-container">
@@ -57,6 +63,12 @@
 			<a class="link ml-4" (click)="auth.logout()">Logout</a>
 			<a class="link ml-4" routerLinkActive="link-active" routerLink="/about">About</a>
 			<img class="ml-4" *ngIf="user" [src]="user.photoURL" alt="DP">
+			<div>
+				<img src="assets/img/cart.png" alt="CART">
+				<span *ngIf="cartService.cart$ | async as cart" class="cart-items-lg">
+					{{ cart.products.length }}
+				</span>
+			</div>
 		</div>
 	</div>
 </nav>
