@@ -16,14 +16,18 @@ export class HomeComponent implements OnInit {
   featured$: Observable<Collection>;
 
   constructor(
-    private collections: CollectionService,
-    private products: ProductService,
+    private collectionService: CollectionService,
+    private productService: ProductService,
     private cartService: CartService
   ) { }
 
   ngOnInit(): void {
-    this.featured$ = this.collections.get('featured')
+    this.featured$ = this.collectionService.get('featured')
       .pipe(map(payload => payload.success ? payload.data : null));
+  }
+
+  clear(): void {
+    this.cartService.clear();
   }
 
   addProduct(): void {
