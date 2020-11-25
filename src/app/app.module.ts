@@ -31,7 +31,7 @@ import { CollectionService } from './utils/collection.service';
 import { ProductService } from './utils/product.service';
 import { CartService } from './utils/cart.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
