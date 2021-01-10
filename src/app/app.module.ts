@@ -20,18 +20,18 @@ import { ProfileComponent } from './routes/profile/profile.component';
 import { AdminComponent } from './routes/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
-import { ViewProductComponent } from './components/view-product/view-product.component';
+import { ViewProductComponent } from './routes/view-product/view-product.component';
 import { SaveProductComponent } from './components/save-product/save-product.component';
 
 import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './utils/user.service';
-import { CollectionService } from './utils/collection.service';
 import { ProductService } from './utils/product.service';
 import { CartService } from './utils/cart.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
 import { CartComponent } from './components/cart/cart.component';
+import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { CartComponent } from './components/cart/cart.component';
     ViewProductComponent,
     DropZoneDirective,
     SaveProductComponent,
-    CartComponent
+    CartComponent,
+    HomeCarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,6 @@ import { CartComponent } from './components/cart/cart.component';
     AuthGuard,
     AdminGuard,
     UserService,
-    CollectionService,
     ProductService,
     CartService
   ],

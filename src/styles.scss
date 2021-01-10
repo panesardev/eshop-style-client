@@ -12,7 +12,8 @@ html, body {
 }
 
 body {
-	background-color: $light;
+	background-image: linear-gradient(135deg, #99f, #f99);
+	color: $light;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -41,7 +42,7 @@ a:hover, button:hover {
 .divider {
 	margin: 0;
 	padding: 0;
-	border-bottom: .1rem solid #e3e7eb;
+	border-bottom: .1rem solid #ffffff3d;
 }
 
 .center { text-align: center; }

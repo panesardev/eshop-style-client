@@ -15,14 +15,13 @@ export class ViewProductComponent implements OnInit {
   product$: Observable<Product>;
 
   constructor(
-    private products: ProductService,
+    private productService: ProductService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const id: string = this.route.snapshot.params.id;
-    this.product$ = this.products.get(id)
-      .pipe(map(payload => payload.success ? payload.data : null));
+    this.product$ = this.productService.get(id);
   }
 
 }

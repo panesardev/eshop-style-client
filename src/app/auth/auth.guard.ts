@@ -8,16 +8,18 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router) { }
 
+	private message = 'You need to be Logged In';
+
 	canActivate(
 		next: ActivatedRouteSnapshot, state: RouterStateSnapshot
-	): Observable<boolean> | Promise<boolean> | boolean {
+	): Observable<boolean> {
 		return this.auth.user$.pipe(
 			take(1),
 			map(user => !!user), // user to boolean
 			tap(loggedIn => {
 				if (loggedIn) return true;
-				this.router.navigate(['/login']);
-				alert('You need to me logged in');
+				this.router.navigate(['/auth/login']);
+				alert(this.message);
 				return false;
 			})
 		);

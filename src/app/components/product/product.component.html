@@ -1,3 +1,5 @@
 <div>
-	{{ product | json }}
+	<h2>{{ product.name }}</h2>
+	<img [src]="product.pictureURL" alt="Product Picture" width="300">
+	<pre>{{ product | json }}</pre>
 </div>

@@ -1,0 +1,5 @@
+<section>
+	<div *ngIf="product$ | async as product">
+		<app-product [product]="product"></app-product>
+	</div>
+</section>

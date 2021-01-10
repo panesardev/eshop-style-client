@@ -13,13 +13,15 @@ export class CartService {
     subTotal: 0,
     total: 0
   };
-  private cart = new BehaviorSubject<Cart>(JSON.parse(localStorage.cart) || this.initialCart);
+  private cart = new BehaviorSubject<Cart>(this.initialCart);
 
   public cart$ = this.cart.asObservable();
 
-  constructor() { }
+  constructor() { 
+    localStorage.cart = JSON.stringify(this.initialCart);
+  }
 
-  get currentState(): Cart {
+  private get currentState(): Cart {
     return this.cart.value;
   }
 
@@ -39,12 +41,11 @@ export class CartService {
     this.currentState.products = [];
     this.currentState.subTotal = 0;
     this.currentState.total = 0;
-    
-    this.updateState();
+    this.updateState();    
     localStorage.cart = null;
   }
 
-  updateState(): void {
+  private updateState(): void {
     this.currentState.lastUpdated = timeStamp();
     this.cart.next(this.currentState);
   }

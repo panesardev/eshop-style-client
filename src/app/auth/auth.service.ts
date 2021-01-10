@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -11,7 +11,7 @@ import { SignUserDto } from '../models/sign-user.interface';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  user$: Observable<User>;
+  public user$: Observable<User>;
 
   constructor(
 		private firestore: AngularFirestore,
@@ -19,9 +19,7 @@ export class AuthService {
 		private router: Router
   ) {
 		this.user$ = ngAuth.authState.pipe(
-			switchMap(user => {
-    		return user ? firestore.doc(`users/${user.uid}`).valueChanges() : of(null)
-			})
+			switchMap(user => user ? this.userDoc(user).valueChanges() : of(null))
 		);
   }
 
@@ -41,7 +39,7 @@ export class AuthService {
 			await Promise.all([
 				credential.user.updateProfile({ displayName: dto.displayName }),
 				this.updateUser(credential.user),
-				this.router.navigate(['home'])
+				this.router.navigate(['/home'])
 			]);
 		}
 		throw Error('Insufficient Information to create Account');
@@ -64,7 +62,7 @@ export class AuthService {
   }
 
 	async updateUser(user: any, address?: string, phoneNumber?: string): Promise<void> {
-		const userRef = this.firestore.doc(`users/${user.uid}`);
+		const userRef = this.userDoc(user);
 
 		const userPayload: User = {
 			displayName: user.displayName,
@@ -84,7 +82,11 @@ export class AuthService {
 
 	async logout(): Promise<void> {
 		this.ngAuth.signOut();
-		this.router.navigate(['/login']);
-  }
+		this.router.navigate(['/auth/login']);
+	}
+	
+	userDoc(user: User): AngularFirestoreDocument<User> {
+		return this.firestore.doc(`users/${user.uid}`);
+	}
 
 }

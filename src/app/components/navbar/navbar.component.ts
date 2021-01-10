@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('sidebar') sidebar: ElementRef;
 
-  user: User = { } as User;
+  user: User;
 
   constructor(public auth: AuthService, public cartService: CartService) { 
     this.auth.user$.subscribe(user => this.user = user);
