@@ -9,26 +9,29 @@ import { UserService } from 'src/app/utils/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private auth: AuthService,
-    private userService: UserService
-  ) { }
+  email: string;
+  password: string;
+  error: string;
+
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  async login(): Promise<void> {
+    try {
+      await this.auth.signIn(this.email, this.password);
+    } catch (e) {
+      this.error = e.message;
+    }
+  } 
+
   async googleLogin(): Promise<void> {
     try {
       await this.auth.googleSignIn();
-
     } catch (e) {
-      console.log(e);
+      this.error = e.message;
     }
-  }
-
-  async phone() {
-    await this.userService.updatePhoneNumber('4372190390');
-    await this.userService.updateAddress('41 Ozner Court, Brampton ON, Canada');
   }
 
 }

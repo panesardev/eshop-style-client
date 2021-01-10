@@ -1,5 +1,28 @@
-<div>
-	<button (click)="googleLogin()">Login with Google</button>
-
-	<button (click)="phone()">Change phone</button>
-</div>
+<section>
+	<div class="form-container my-4">
+		<form class="login-form">
+			<div>
+				<h1>Log into EShopStyle</h1>
+			</div>
+			<div *ngIf="auth.user$ | async as user">
+				<p>Logged in as {{ user.displayName }}</p>
+			</div>
+			<div *ngIf="error">
+				<p>{{ error }}</p>
+			</div>
+			<div>
+				<label>Enter email: <br>
+					<input type="email" [(ngModel)]="email" name="email">
+				</label>
+			</div>
+			<div>
+				<label>Enter password: <br>
+					<input type="password" [(ngModel)]="password" name="password">
+				</label>
+			</div>
+			<div>
+				<button (click)="login()">Login</button>
+			</div>
+		</form>
+	</div>
+</section>
