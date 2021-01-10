@@ -3,5 +3,22 @@
 	box-shadow: 0 0 32px 0 rgba(74, 74, 78, 0.075);
 	backdrop-filter: blur( 4px );
 	-webkit-backdrop-filter: blur( 4px );
-	border-radius: 10px;
+	
+	border-radius: 6px;
+	max-width: 700px;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.input-box {
+	display: flex;
+	justify-content: center;
+}
+
+label {
+	text-align: left;
+	width: 80%;
+	max-width: 300px;
 }

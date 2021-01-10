@@ -1,6 +1,6 @@
 <section>
-	<div class="form-container my-4">
-		<form class="login-form">
+	<div class="my-4">
+		<form class="login-form mx-auto">
 			<div>
 				<h1>Log into EShopStyle</h1>
 			</div>
@@ -10,18 +10,19 @@
 			<div *ngIf="error">
 				<p>{{ error }}</p>
 			</div>
-			<div>
+			<div class="input-box">
 				<label>Enter email: <br>
 					<input type="email" [(ngModel)]="email" name="email">
 				</label>
 			</div>
-			<div>
+			<div class="input-box">
 				<label>Enter password: <br>
 					<input type="password" [(ngModel)]="password" name="password">
 				</label>
 			</div>
-			<div>
-				<button (click)="login()">Login</button>
+			<div class="input-box">
+				<button class="login-btn" (click)="login()">Login</button> <br>
+				<button (click)="googleLogin()">Login with Google</button>
 			</div>
 		</form>
 	</div>

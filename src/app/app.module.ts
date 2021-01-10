@@ -32,6 +32,8 @@ import { CartService } from './utils/cart.service';
 import { DropZoneDirective } from './utils/drop-zone.directive';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
+import { HomeProductListComponent } from './components/home-product-list/home-product-list.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { HomeCarouselComponent } from './components/home-carousel/home-carousel.
     DropZoneDirective,
     SaveProductComponent,
     CartComponent,
-    HomeCarouselComponent
+    HomeCarouselComponent,
+    HomeProductListComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
