@@ -1,5 +1,11 @@
-<div>
-	<h2>{{ product.name }}</h2>
-	<img [src]="product.pictureURL" alt="Product Picture" width="300">
-	<pre>{{ product | json }}</pre>
+<div class="product">
+	<div class="img center">
+		<img [src]="product.pictureURL" alt="Product Picture" width="150">
+	</div>
+	<p class="name center">{{ product.name }}</p>
+	<p>
+		<button class="veiew float-right">View</button>
+		<span class="stars">{{ product.stars }}</span>
+		<span class="price">${{ product.price }}</span>
+	</p>
 </div>

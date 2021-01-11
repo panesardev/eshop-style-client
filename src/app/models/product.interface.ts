@@ -14,4 +14,5 @@ export interface Product {
 	}>;
 	description: string;
 	type: 'shoe' | 'shirt' | 't-shirt' | 'jean' | 'jogger' | 'short';
+	collectionName: string;
 }

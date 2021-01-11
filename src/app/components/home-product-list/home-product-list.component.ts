@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Collection } from '../../models/collection.interface';
 
 @Component({
   selector: 'app-home-product-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeProductListComponent implements OnInit {
 
+  @Input() collection: Collection;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.collection);
+    
   }
 
 }

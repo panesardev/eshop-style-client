@@ -34,6 +34,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
 import { HomeProductListComponent } from './components/home-product-list/home-product-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { CollectionService } from 'src/app/utils/collection.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     AdminGuard,
     UserService,
     ProductService,
-    CartService
+    CartService,
+    CollectionService
   ],
   bootstrap: [AppComponent]
 })

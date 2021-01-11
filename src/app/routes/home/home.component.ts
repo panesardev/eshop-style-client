@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Collection } from 'src/app/models/collection.interface';
 import { CartService } from 'src/app/utils/cart.service';
+import { CollectionService } from 'src/app/utils/collection.service';
 import { ProductService } from 'src/app/utils/product.service';
 
 @Component({
@@ -15,10 +16,12 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private collectionService: CollectionService,
     private cartService: CartService
   ) { }
 
   ngOnInit(): void {
+    this.featured$ = this.collectionService.get('featured');
   }
 
   clear(): void {
@@ -32,10 +35,9 @@ export class HomeComponent implements OnInit {
       pictureURL: '',
       price: 0,
       quantity: 0,
-      type: 'jean'
+      type: 'jean',
+      collectionName: 'featured'
     });
   }
-
   
-
 }

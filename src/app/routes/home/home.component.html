@@ -6,13 +6,10 @@
 	<div class="divider"></div>
 	<div class="my-3">
 		<div class="collection" *ngIf="featured$ | async as featured">
-			<p class="heading">{{ featured.name }}</p>
-			<div *ngFor="let product of featured.products">
-				<app-product [product]="product"></app-product>
-			</div>
+			<app-home-product-list [collection]="featured"></app-home-product-list>
 		</div>
-		<button routerLink="/view/product/382b598d-1180-4270-8290-ec27a17c59cd">View product</button>
+		<!-- <button routerLink="/view/product/382b598d-1180-4270-8290-ec27a17c59cd">View product</button>
 		<button (click)="addProduct()">Add Product to cart</button>
-		<button (click)="clear()">Clear cart</button>
+		<button (click)="clear()">Clear cart</button> -->
 	</div>
 </section>

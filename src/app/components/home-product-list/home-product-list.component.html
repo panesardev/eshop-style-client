@@ -1,1 +1,9 @@
-<p>home-product-list works!</p>
+<div>
+	<a class="float-right">View more</a>
+	<p class="name">{{ collection.name }}</p>
+	<div class="row">
+		<div *ngFor="let product of collection.products" class="col-md-2">
+			<app-product [product]="product"></app-product>
+		</div>
+	</div>
+</div>
