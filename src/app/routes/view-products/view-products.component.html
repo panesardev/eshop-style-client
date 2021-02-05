@@ -1,0 +1,8 @@
+<section>
+	<div *ngIf="collection$ | async as collection">
+		<h1>{{ collection.name }}</h1>
+		<div *ngFor="let product of collection.products" class="col-md-2">
+			<app-product [product]="product"></app-product>
+		</div>
+	</div>
+</section>

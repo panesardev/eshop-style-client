@@ -1,11 +1,10 @@
-<div class="product">
-	<div class="img center">
+<div class="product mx-2">
+	<div class="img center" routerLink="/view/product/{{ product.id }}">
 		<img [src]="product.pictureURL" alt="Product Picture" width="150">
 	</div>
-	<p class="name center">{{ product.name }}</p>
-	<p>
-		<button class="veiew float-right">View</button>
-		<span class="stars">{{ product.stars }}</span>
-		<span class="price">${{ product.price }}</span>
-	</p>
+	<div class="px-2 pb-2">
+		<p class="name mb-1">{{ product.name }}</p>
+		<button class="add float-right">Add to cart</button>
+		<span class="price"><strong>${{ product.price.toFixed(2) }}</strong></span>
+	</div>
 </div>

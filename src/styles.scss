@@ -8,10 +8,10 @@
 }
 
 body {
-	background-image: linear-gradient(135deg, #99f, #f99);
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: $light;
+	// background-image: linear-gradient(135deg, #99f, #f99);
+	// background-size: cover;
+	// background-repeat: no-repeat;
+	color: black;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6, p {
 a, button, input, textarea {
 	border-radius: 3px;
 	border: .1rem solid transparent;
+	transition: 300ms;
 }
 
 a:hover, button:hover {
@@ -68,7 +69,7 @@ section {
 .divider {
 	margin: 0;
 	padding: 0;
-	border-bottom: .1rem solid #ffffff3d;
+	border-bottom: .1rem solid #d6d6d64d;
 }
 
 .center { text-align: center; }

@@ -5,11 +5,26 @@
 	</div>
 	<div class="divider"></div>
 	<div class="my-3">
-		<div class="collection" *ngIf="featured$ | async as featured">
+		<div *ngIf="!loading; else loadingdiv">
 			<app-home-product-list [collection]="featured"></app-home-product-list>
 		</div>
-		<!-- <button routerLink="/view/product/382b598d-1180-4270-8290-ec27a17c59cd">View product</button>
-		<button (click)="addProduct()">Add Product to cart</button>
-		<button (click)="clear()">Clear cart</button> -->
+		<ng-template #loadingdiv>
+			<app-loading></app-loading>
+		</ng-template>
+		<div class="divider"></div>
+	</div>
+	<div class="buttons mt-4">
+		<div>
+			<button routerLink="/view/collection/men clothing">View Men Clothing</button>
+		</div>
+		<div class="px-sm-2">
+			<button routerLink="/view/collection/women clothing">View Women Clothing</button>
+		</div>
+		<div class="pr-sm-2">
+			<button routerLink="/view/collection/jewelery">View Jewelery</button>
+		</div>
+		<div>
+			<button routerLink="/view/collection/electronics">View Electronics</button>
+		</div>
 	</div>
 </section>

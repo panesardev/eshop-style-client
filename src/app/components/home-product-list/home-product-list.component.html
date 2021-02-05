@@ -1,8 +1,10 @@
 <div>
-	<a class="float-right">View more</a>
-	<p class="name">{{ collection.name }}</p>
-	<div class="row">
-		<div *ngFor="let product of collection.products" class="col-md-2">
+	<div class="pb-2">
+		<a class="float-right mr-2 px-3 py-1 view-more">View more</a>
+		<p class="name pl-2">{{ collection.name }}</p>
+	</div>
+	<div class="home-grid">
+		<div *ngFor="let product of collection.products">
 			<app-product [product]="product"></app-product>
 		</div>
 	</div>

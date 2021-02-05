@@ -1,3 +1,5 @@
+@import '../../../variables.scss';
+
 .hero {
 	.title {
 		font-family: 'nunito';
@@ -18,10 +20,38 @@
 	font-size: 2rem;
 }
 
+.buttons {
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+
+	div {
+		flex-grow: 1;
+	}
+	div, button {
+		height: 100%;
+	}
+	button {
+		width: 100%;
+		background-color: $violet;
+		color: white;
+		box-shadow: 0 0 10px rgba(109, 117, 128, 0.349);
+	}
+	button:hover {
+		background-color: $pink;
+	}
+}
+
 @media (min-width: 868px) {
 	.hero {
 		.disc {
 			font-size: 1.5rem;
+		}
+	}
+	.buttons {
+		flex-direction: row;
+		button {
+			font-size: 1.25rem;
 		}
 	}
 }

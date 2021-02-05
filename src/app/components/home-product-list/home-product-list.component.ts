@@ -13,7 +13,6 @@ export class HomeProductListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.collection);
     
   }
 

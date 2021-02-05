@@ -1,43 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Collection } from 'src/app/models/collection.interface';
-import { CartService } from 'src/app/utils/cart.service';
 import { CollectionService } from 'src/app/utils/collection.service';
-import { ProductService } from 'src/app/utils/product.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  featured$: Observable<Collection>;
+  featured: Collection;
+  loading: boolean;
 
-  constructor(
-    private productService: ProductService,
-    private collectionService: CollectionService,
-    private cartService: CartService
-  ) { }
+  private subscription: Subscription;
+
+  constructor(private collectionService: CollectionService) { }
 
   ngOnInit(): void {
-    this.featured$ = this.collectionService.get('featured');
-  }
-
-  clear(): void {
-    this.cartService.clear();
-  }
-
-  addProduct(): void {
-    this.cartService.addProduct({
-      description: '',
-      name: '',
-      pictureURL: '',
-      price: 0,
-      quantity: 0,
-      type: 'jean',
-      collectionName: 'featured'
+    this.loading = true;
+    this.subscription = this.collectionService.get('featured').subscribe(collection => {
+      this.featured = collection;
+      this.loading = false;
     });
   }
-  
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 }

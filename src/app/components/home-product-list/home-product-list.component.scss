@@ -1,0 +1,21 @@
+@import '../../../variables.scss';
+
+.home-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	width: 100%;
+}
+
+.name {
+	font-family: 'Staatliches';
+	font-size: 2rem;
+}
+
+.view-more {
+	color: white;
+	background-color: $violet;
+}
+
+.view-more:hover {
+	background-color: $pink;
+}

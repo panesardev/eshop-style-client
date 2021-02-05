@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Collection } from '../models/collection.interface';
 import { environment as env } from '../../environments/environment';
+import { Observable } from 'rxjs';
  
 @Injectable({ providedIn: 'root' })
 export class CollectionService {
@@ -10,5 +11,8 @@ export class CollectionService {
 
   constructor(private http: HttpClient) { }
 
-  get = (name: string) => this.http.get<Collection>(this.URL + name);
+  get(name: string): Observable<Collection> {
+    return this.http.get<Collection>(this.URL + name); 
+  }
+
 }

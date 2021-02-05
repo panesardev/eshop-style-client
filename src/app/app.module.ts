@@ -2,17 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {NgxFilesizeModule} from 'ngx-filesize';
-
-import { AppRoutingModule } from './app.routing';
+import { NgxFilesizeModule } from 'ngx-filesize';
+import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-
 import { HomeComponent } from './routes/home/home.component';
 import { LoginComponent } from './routes/login/login.component';
 import { SignUpComponent } from './routes/sign-up/sign-up.component';
@@ -22,7 +19,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductComponent } from './components/product/product.component';
 import { ViewProductComponent } from './routes/view-product/view-product.component';
 import { SaveProductComponent } from './components/save-product/save-product.component';
-
 import { AdminGuard } from './auth/admin.guard';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
@@ -35,6 +31,9 @@ import { HomeCarouselComponent } from './components/home-carousel/home-carousel.
 import { HomeProductListComponent } from './components/home-product-list/home-product-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CollectionService } from 'src/app/utils/collection.service';
+import { ViewProductsComponent } from './routes/view-products/view-products.component';
+import { RouterModule } from '@angular/router';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +51,12 @@ import { CollectionService } from 'src/app/utils/collection.service';
     CartComponent,
     HomeCarouselComponent,
     HomeProductListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ViewProductsComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
@@ -64,7 +64,8 @@ import { CollectionService } from 'src/app/utils/collection.service';
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    NgxFilesizeModule
+    NgxFilesizeModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     AuthService,
