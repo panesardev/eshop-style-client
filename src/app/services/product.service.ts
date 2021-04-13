@@ -15,6 +15,10 @@ export class ProductService {
     return this.http.post<Product>(this.URL, product);
   }
 
+  update(product: Product): Observable<Product> {
+    return this.http.put<Product>(this.URL, product);
+  }
+
   get(id: string): Observable<Product> {
     return this.http.get<Product>(this.URL + id);
   }

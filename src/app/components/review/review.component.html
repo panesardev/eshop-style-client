@@ -1,0 +1,26 @@
+<table class="review">
+	<tr>
+		<td class="left">
+			<span>Subtotal: </span>
+		</td>
+		<td class="right">
+			<span>${{ cart.subTotal.toFixed(2) }}</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="left">
+			<span>Tax (13%): </span>
+		</td>
+		<td class="right">
+			<span>${{ cart.taxPrice.toFixed(2) }}</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="left">
+			<span>Total: </span>
+		</td>
+		<td class="right">
+			<span>${{ cart.total.toFixed(2) }}</span>
+		</td>
+	</tr>
+</table>

@@ -4,7 +4,7 @@
 	</div>
 	<div class="px-2 pb-2">
 		<p class="name mb-1">{{ product.name }}</p>
-		<button class="add float-right">Add to cart</button>
+		<button class="add float-right" (click)="addProduct()">Add to cart</button>
 		<span class="price"><strong>${{ product.price.toFixed(2) }}</strong></span>
-	</div>
+	</div> 
 </div>

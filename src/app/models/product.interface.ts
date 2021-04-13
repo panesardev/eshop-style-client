@@ -3,16 +3,14 @@ export interface Product {
 	name: string;
 	pictureURL: string;
 	price: number;
-	quantity: number;
-	stars?: number;
-	gender?: 'm' | 'f';
-	reviews?: Array<{
-		name: string,
-		timeStamp: string,
-		content: string,
-		stars?: number
-	}>;
+	reviews?: Review[];
 	description: string;
-	type: 'shoe' | 'shirt' | 't-shirt' | 'jean' | 'jogger' | 'short';
 	collectionName: string;
 }
+
+export interface Review {
+	id?: string;
+	name: string;
+	timeStamp: string;
+	content: string;
+}	

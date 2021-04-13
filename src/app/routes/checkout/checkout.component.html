@@ -1,0 +1,22 @@
+<section>
+	<p class="heading center my-3">Place your Order</p>
+	<div class="main shadow px-3 py-5 mx-auto">
+		<div *ngIf="user; else noUser">
+			<div class="center address-container">
+				<p>Your order will be shipped to:</p>  
+				<p>{{ user.address }}</p>
+			</div>
+		</div>
+		<ng-template #noUser>
+			<div class="center no-user">
+				<p class="mb-3">You need to be logged in to place order!</p>
+				<button routerLink="/auth/login" class="green-btn px-3 py-1">Login</button>
+			</div>
+		</ng-template>
+		<app-review [cart]="cart"></app-review>	
+		<div class="buttons mx-auto">
+			<button class="green-btn mb-3" (click)="placeOrder()">Place Order</button>
+			<button class="cancel" routerLink="/view/cart">Cancel & go back</button>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,11 @@
+<div class="modal">
+	<p class="heading mb-3">Are You Sure ?</p>
+	<div class="buttons">
+		<div>
+			<button class="px-3 py-1 cancel" (click)="output.emit(false)">Cancel</button>
+		</div>
+		<div>
+			<button class="px-3 py-1 confirm" (click)="output.emit(true)">Confirm</button>
+		</div>
+	</div>
+</div>

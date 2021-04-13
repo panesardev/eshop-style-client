@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { CartService } from './utils/cart.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,6 @@ export class AppComponent {
   // Save cart if user refreshes or leaves te site
   @HostListener('window:beforeunload')
   listenCloseWindow() {
-    this.cartService.saveState();
+    this.cartService.save();
   }
 }

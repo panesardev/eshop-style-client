@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+.order {
+	width: 90%;
+	max-width: 700px;
+	border-radius: 5px;
+}
+
+.delete {
+	background-color: $error-light;
+	color: $error;
+	border: .1rem solid transparent;
+
+	&:hover {
+		border: .1rem solid $error;
+		box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);	
+	}
+}

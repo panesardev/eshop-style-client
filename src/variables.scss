@@ -1,8 +1,15 @@
 $light: #fbfcfd;
 $dark: #363b49;
-$text: #464d61;
+$text: rgb(70, 77, 97);
 $error: #d61d20;
 $error-light: #ffdadb; 
 $green: #30B566;
+$green-light: rgba(48, 181, 101, 0.175);
 $pink: #f99;
+$pink-hover: rgb(233, 138, 138);
 $violet: #99f;
+$violet-hover: rgb(138, 138, 230);
+$pink-light: rgba(255, 153, 153, 0.175);
+$violet-light: rgba(153, 153, 255, 0.175);
+$shadow: 0 0 10px rgba(131, 137, 145, 0.219);
+$radius: 4px;

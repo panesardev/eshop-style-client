@@ -2,6 +2,14 @@
 
 .navbar {
 	background-color: rgb(255, 255, 255);
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.493);
+}
+
+.cart-img {
+	margin-right: 1rem;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .side-bar {
@@ -12,7 +20,7 @@
 	width: 100%;
 	height: 100%;
 	background-color: white;
-	transition: .3s all ease-out;
+	transition: 200ms all ease;
 	transform: translateX(-100%);
 }
 
@@ -76,8 +84,10 @@ a {
 img {
 	width: 35px;
 	border-radius: 50%;
-	margin-right: 1rem;
 	border: .1rem solid #F2F2F2;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .route-container, .spacing {
@@ -91,6 +101,7 @@ img {
 	border-radius: 100px;
 	background-color: $error;
 	color: white;
+	user-select: none;
 }
 
 .cart-items-sm {

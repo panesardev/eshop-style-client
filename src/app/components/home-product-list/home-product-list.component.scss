@@ -2,7 +2,6 @@
 
 .home-grid {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
 	width: 100%;
 }
 
@@ -18,4 +17,10 @@
 
 .view-more:hover {
 	background-color: $pink;
+}
+
+@media (min-width: 868px) {
+	.home-grid {
+		grid-template-columns: repeat(5, 1fr);
+	}
 }

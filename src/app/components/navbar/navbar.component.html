@@ -12,12 +12,9 @@
 		</div>
 		<div class="mt-5">
 			<div class="my-3 center">
-				<img *ngIf="user" class="mx-0" [src]="user.photoURL" alt="DP">
+				<img routerLink="/user/profile" (click)="close()" *ngIf="user" [src]="user.photoURL ? user.photoURL : 'assets/img/user.png'" alt="DP">
 			</div>
-			<div class="my-3 center">
-				<a routerLinkActive="link-active" routerLink="/user/profile" (click)="close()" class="link">Profile</a>
-			</div>
-			<div class="my-3 center" *ngIf="user ? user.isAdmin : false">
+			<div class="my-3 center" *ngIf="user && user.isAdmin">
 				<a routerLinkActive="link-active" routerLink="/admin" (click)="close()" class="link">Admin</a>
 			</div>
 			<div class="my-3 center">
@@ -26,14 +23,11 @@
 			<div class="my-3 center">
 				<a routerLinkActive="link-active" routerLink="/auth/sign-up" (click)="close()" class="link">Sign up</a>
 			</div>
-			<div class="my-3 center">
+			<div class="my-3 center" *ngIf="user">
 				<a (click)="close();auth.logout()" class="link">Logout</a>
 			</div>
 			<div class="my-3 center">
 				<a routerLinkActive="link-active" routerLink="/about" (click)="close()" class="link">About</a>
-			</div>
-			<div class="my-3 center">
-				<a routerLinkActive="link-active" routerLink="/help"	(click)="close()" class="link">Help</a>
 			</div>
 		</div>
 	</div>
@@ -48,25 +42,24 @@
 			<a class="brand" routerLink="/home">EShopStyle</a>
 		</div>
 		<div class="options-container">
-			<img src="assets/img/cart.png" alt="CART">
-			<span *ngIf="cartService.cart$ | async as cart" class="cart-items-sm">
-				{{ cart.products.length }}
+			<img src="assets/img/cart.png" alt="CART" class="cart-img" routerLink="/view/cart">
+			<span class="cart-items-sm">
+				{{ cartService.cart.products && cartService.cart.products.length }}
 			</span>
 		</div>
 		<div class="spacing"></div>
 		<div class="route-container">
 			<a class="link ml-4" routerLinkActive="link-active" routerLink="/home">Home</a>
-			<a *ngIf="user ? user.isAdmin : false" class="link ml-4" routerLinkActive="link-active" routerLink="/admin">Admin</a>
-			<a class="link ml-4" routerLinkActive="link-active" routerLink="/user/profile">Profile</a>
+			<a *ngIf="user && user.isAdmin" class="link ml-4" routerLinkActive="link-active" routerLink="/admin">Admin</a>
 			<a class="link ml-4" routerLinkActive="link-active" routerLink="/auth/login">Login</a>
 			<a class="link ml-4" routerLinkActive="link-active" routerLink="/auth/sign-up">Signup</a>
-			<a class="link ml-4" (click)="auth.logout()">Logout</a>
+			<a *ngIf="user" class="link ml-4" (click)="auth.logout()">Logout</a>
 			<a class="link ml-4" routerLinkActive="link-active" routerLink="/about">About</a>
-			<img class="ml-4" *ngIf="user" [src]="user.photoURL" alt="DP">
-			<div>
-				<img src="assets/img/cart.png" alt="CART">
-				<span *ngIf="cartService.cart$ | async as cart" class="cart-items-lg">
-					{{ cart.products.length }}
+			<img class="ml-4" routerLink="/user/profile" *ngIf="user" [src]="user.photoURL ? user.photoURL : 'assets/img/user.png'" alt="DP">
+			<div class="ml-4" routerLink="/view/cart">
+				<img src="assets/img/cart.png" alt="CART" class="cart-img">
+				<span class="cart-items-lg">
+					{{ cartService.cart.products && cartService.cart.products.length }}
 				</span>
 			</div>
 		</div>

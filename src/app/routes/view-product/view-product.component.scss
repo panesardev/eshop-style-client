@@ -1,0 +1,90 @@
+@import '../../../variables.scss';
+
+.collection-name {
+	font-size: 2rem;
+	font-family: 'Staatliches';
+}
+
+.img {
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.493);
+	border-radius: 10px;
+	display: inline-block;
+	padding: 20px 25px;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+textarea, .review {
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.075);
+	background-color: rgb(244, 246, 247);
+	border-radius: 10px;
+	font-size: 1rem;
+	padding: 5px 10px;
+}
+
+textarea {
+	width: 100%;
+}
+
+.review {
+	padding: 10px 20px;
+}
+
+.price {
+	font-size: 1.25rem;
+
+	span {
+		background-color: $violet-light;
+		color: $violet;
+		border-radius: 4px;
+	}
+}
+
+.buttons {
+	max-width: 200px;
+	width: 80%;
+
+	button {
+		width: 100%;
+	}
+}
+
+.add-cart {
+	background-color: $violet;
+	color: white;
+	font-size: 1rem;
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.493);
+
+	&:hover {
+		background-color: $pink;
+	}
+}
+
+.delete {
+	background-color: $error;
+	color: white;
+	font-size: 1rem;
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.493);
+
+	&:hover {
+		background-color: #eb6668;
+	}
+}
+
+.name {
+	font-size: 1.5rem;
+}
+
+@media (min-width: 868px) {
+	section {
+		width: 800px;
+	}
+	.name {
+		font-size: 2rem;
+	}
+	.img img {
+		width: 290px;
+	}
+}

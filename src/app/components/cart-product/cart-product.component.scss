@@ -1,0 +1,29 @@
+@import '../../../variables.scss';
+
+.product {
+	border-radius: 4px;
+	box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);
+}
+
+.price {
+	background-color: rgb(240, 243, 245);
+	border-radius: 4px;
+	border: .1rem solid transparent;
+}
+
+.delete {
+	background-color: $error-light;
+	color: $error;
+	border: .1rem solid transparent;
+
+	&:hover {
+		border: .1rem solid $error;
+		box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);	
+	}
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,8 +1,11 @@
 <section>
-	<div *ngIf="collection$ | async as collection">
-		<h1>{{ collection.name }}</h1>
-		<div *ngFor="let product of collection.products" class="col-md-2">
+	<div *ngIf="loading; else showCollection" class="abs-center mt-5">
+		<app-loading></app-loading>
+	</div>
+	<ng-template #showCollection>
+		<p class="my-3 center">{{ collection.name }}</p>
+		<div *ngFor="let product of collection.products" class="col-md-2 mb-3">
 			<app-product [product]="product"></app-product>
 		</div>
-	</div>
+	</ng-template>
 </section>

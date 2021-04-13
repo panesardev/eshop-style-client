@@ -1,9 +1,10 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.interface';
-import { ProductService } from '../../utils/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-save-product',
@@ -14,7 +15,10 @@ export class SaveProductComponent implements OnInit {
 
   @ViewChild('previewIMG') previewIMG: ElementRef;
 
-  product: Product = {} as Product;
+  product: Product = {
+    collectionName: 'men clothing'
+  } as Product;
+
   picture: File = null;
 
   task: AngularFireUploadTask;
@@ -28,7 +32,8 @@ export class SaveProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -77,8 +82,9 @@ export class SaveProductComponent implements OnInit {
   async save(): Promise<void> {
     if (this.validateProduct()) {
       await this.uploadPicture();
-      this.productService.save(this.product)
-        .subscribe(console.log);
+      await this.productService.save(this.product).toPromise();
+      this.toastr.success('Product uploaded!', '', { timeOut: 1000 });
+      location.reload();
     } else {
       this.validationError = true;
     }
@@ -87,8 +93,6 @@ export class SaveProductComponent implements OnInit {
   validateProduct(): boolean {
     return this.product.description ||
       this.product.name ||
-      this.product.gender ||
-      this.product.quantity ||
       this.product.price || 
       this.product.pictureURL ? true : false;
   }

@@ -1,11 +1,13 @@
 <div>
 	<div class="pb-2">
-		<a class="float-right mr-2 px-3 py-1 view-more">View more</a>
+		<a routerLink="/view/collection/all products" class="float-right mr-2 px-3 py-1 view-more">View more</a>
 		<p class="name pl-2">{{ collection.name }}</p>
 	</div>
 	<div class="home-grid">
 		<div *ngFor="let product of collection.products">
-			<app-product [product]="product"></app-product>
+			<div class="mb-3">
+				<app-product [product]="product"></app-product>
+			</div>
 		</div>
 	</div>
 </div>

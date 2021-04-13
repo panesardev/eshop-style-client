@@ -1,0 +1,29 @@
+@import '../../../variables.scss';
+
+input {
+	width: 100%;
+	max-width: 400px;
+	color: black;
+}
+
+.name {
+	font-size: 2rem;
+	span {
+		color: $violet;
+	}
+}
+
+img {
+	border-radius: 50%;
+}
+
+.update-btn {
+	background-color: $violet;
+	color: white;
+	font-size: 1rem;
+	box-shadow: 0 0 10px rgba(191, 199, 201, 0.493);
+
+	&:hover {
+		background-color: $pink;
+	}
+}

@@ -1,0 +1,50 @@
+@import '../../../variables.scss';
+
+.modal {
+	width: 90%;
+	max-width: 225px;
+	box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);
+	padding: 1rem 1.2rem 1.1rem 1.2rem;
+	background-color: white;
+	border-radius: 5px;
+  animation: fadeInUp .5s ease;
+}
+
+.heading {
+	font-family: 'Staatliches';
+	font-size: 2rem;
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+	width: 100%;
+	
+	div {
+		flex-grow: 1;
+		text-align: center;
+	}
+	div, button {
+		font-size: 1rem;
+		height: 100%;
+	}
+
+	.cancel, .confirm {
+		box-shadow: $shadow;
+		color: white;
+	}
+
+	.cancel {
+		background-color: $error;
+		&:hover {
+			background-color: #eb6668;
+		}
+	}
+
+	.confirm {
+		background-color: $green;
+		&:hover {
+			background-color: #41c074;
+		}
+	}
+}

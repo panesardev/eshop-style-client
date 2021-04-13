@@ -1,0 +1,44 @@
+@import '../../../variables.scss';
+
+.heading {
+	font-size: 2rem;
+	font-family: 'Staatliches';
+}
+
+.header {
+	border-radius: 4px;
+	box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);
+}
+
+.clear {
+	background-color: rgb(234, 239, 241);
+	color: rgb(104, 116, 128);
+	border: .1rem solid transparent;
+
+	&:hover {
+		border: .1rem solid rgba(104, 116, 128, 0.411);
+	}
+}
+
+.checkout {
+	border-radius: 4px;
+	box-shadow: 0 0 10px rgba(131, 137, 145, 0.219);
+}
+
+.continue {
+	width: 80%;
+	max-width: 300px;
+	height: 40px;
+	font-size: 1.1rem;
+	background-color: $green;
+	color: white;
+
+	&:hover {
+		background-color: #2ea85f;
+	}
+
+	&:disabled {
+		background-color: rgb(234, 239, 241);
+		color: rgb(104, 116, 128);
+	}
+}

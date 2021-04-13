@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/user.interface';
 import { AuthService } from 'src/app/auth/auth.service';
-import { CartService } from 'src/app/utils/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',

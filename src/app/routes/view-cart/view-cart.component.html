@@ -1,0 +1,36 @@
+<section>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<p class="heading mb-2 center">Your Items</p>
+			<div class="px-2">
+				<div class="header p-3 pb-4 mb-3">
+					<button class="float-right clear px-3 py-1" (click)="cartService.clear()">Clear Cart</button>
+					Your cart was last updated at {{ cart.lastUpdated }} 
+				</div>
+				<div *ngIf="cart.products.length != 0; else noProducts">
+					<div *ngFor="let product of cart.products" class="mb-3">
+						<app-cart-product [product]="product"></app-cart-product>
+					</div>
+				</div>
+				<ng-template #noProducts>
+					<div class="center">
+						Your cart is empty.
+					</div>
+				</ng-template>	
+			</div>
+		</div>
+		<div class="col-md-6">
+			<p class="heading mb-2 center mt-md-0 mt-3">Secure Checkout</p>
+			<div class="px-2">
+				<div class="checkout p-3">
+					<p class="center">Your order review</p>
+					<div class="center mb-2">
+						<app-review [cart]="cart"></app-review>
+						<p class="mb-2" *ngIf="cart.products.length == 0">Add items to cart to continue</p>
+						<button [disabled]="cart.products.length == 0" class="continue" routerLink="/checkout">Continue</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</section>

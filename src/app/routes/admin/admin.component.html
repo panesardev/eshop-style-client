@@ -1,3 +1,5 @@
-<section>
-	<app-save-product></app-save-product>
+<section *ngIf="auth.user$ | async as user">
+	<div *ngIf="user.isAdmin">
+		<app-save-product></app-save-product>
+	</div>
 </section>

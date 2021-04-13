@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Collection } from 'src/app/models/collection.interface';
-import { CollectionService } from 'src/app/utils/collection.service';
+import { CollectionService } from 'src/app/services/collection.service';
 
 @Component({
   selector: 'app-home',

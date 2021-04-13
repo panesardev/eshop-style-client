@@ -1,0 +1,33 @@
+form {
+	max-width: 400px;
+	width: 100%;
+	margin: 1rem auto;
+
+	div {
+		margin: .8rem auto;
+	}
+
+	input, button, select {
+		width: 100%;
+	}
+
+	input, select {
+		margin-top: .5rem;
+	}
+
+	button {
+		margin-top: 1rem;
+		padding: .5rem .8rem;
+	}
+
+	.divider {
+		margin-top: 2rem;
+	}
+
+	.google-btn {
+		img {
+			vertical-align: middle;
+			width: 25px;
+		}
+	}
+}

@@ -1,1 +1,32 @@
-<p>sign-up works!</p>
+<section>
+	<form (ngSubmit)="signUp()" ngNativeValidate>
+		<p class="heading">Sign Up for an Account</p>
+		<div *ngIf="error">
+			<p class="error">{{ error }}</p>
+		</div>
+		<div>
+			<label>Enter full name <span class="red">*</span></label> <br>
+			<input type="text" [(ngModel)]="user.displayName" name="name" placeholder="full name" autocomplete="off">
+		</div>
+		<div>
+			<label>Enter email <span class="red">*</span></label> <br>
+			<input type="email" [(ngModel)]="user.email" name="email" placeholder="email" autocomplete="off">
+		</div>
+		<div>
+			<label>Enter password <span class="red">*</span></label> <br>
+			<input type="password" [(ngModel)]="user.password" name="password" placeholder="password">
+		</div>
+		<div>
+			<button type="submit" class="primary-btn">Sign up</button>
+		</div>
+		<div>
+			<p class="center"><a class="route-link" routerLink="/auth/login">Login instead</a></p>
+		</div>
+		<div class="divider"></div>
+		<div>
+			<button type="button" class="google-btn" (click)="googleLogin()">
+				<img src="assets/img/google.svg">&nbsp;&nbsp;&nbsp;Continue with Google
+			</button>
+		</div>
+	</form>
+</section>

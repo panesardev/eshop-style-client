@@ -1,5 +1,56 @@
-<section>
-	<div *ngIf="product$ | async as product">
-		<app-product [product]="product"></app-product>
+<section class="mx-auto">
+	<div *ngIf="loading; else showMain" class="abs-center mt-5">
+		<app-loading></app-loading>
 	</div>
+	<ng-template #showMain>
+		<p class="collection-name mt-3">{{ product.collectionName }}</p>
+		<div class="row my-3">
+			<div class="col-md-6">
+				<div class="img">
+					<img [src]="product.pictureURL" alt="PRODUCT_PICTURE" width="290">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<p class="name mt-3 mt-sm-0"><strong>{{ product.name }}</strong></p>
+				<p class="price my-3">Price: <span class="px-2">${{ product.price }}</span></p>
+				<div class="buttons">
+					<button class="px-4 py-1 add-cart" (click)="addProduct()">Add to cart</button> <br>
+					<button class="px-4 py-1 add-cart mt-2" routerLink="/view/cart">View cart</button> <br>
+					<button *ngIf="user && user.isAdmin" class="px-4 py-1 delete mt-2" (click)="showModal = true">Delete</button>
+				</div>
+			</div>
+		</div>
+		<p class="disc mb-3">{{ product.description }}</p>
+		<div class="mb-3">
+			<a class="route-link" routerLink="/view/collection/{{ product.collectionName }}">View {{ product.collectionName }}</a>
+		</div>
+		<div class="divider"></div>
+		<p class="collection-name my-3">Reviews</p>
+		<div class="reviews">
+			<div *ngIf="product.reviews.length == 0; else yesReviews">
+				<p>Not reviews for this product yet!</p>	
+			</div>
+			<ng-template #yesReviews>
+				<div *ngFor="let review of product.reviews">
+					<div class="review my-2">
+						<button class="float-right delete" *ngIf="user.isAdmin" (click)="deleteReview(review.id)">Delete</button>
+						<strong>{{ review.name }}</strong> on {{ review.timeStamp }}
+						<div class="divider my-2"></div>
+						{{ review.content }}
+					</div>
+				</div>
+			</ng-template>
+			<div *ngIf="user; else noUser" class="review-input">
+				<textarea class="my-2" [(ngModel)]="reviewContent" name="review" placeholder="write a review"></textarea>
+				<button class="px-3 py-1 add-cart" (click)="postReview()">Post</button>
+			</div>
+			<ng-template #noUser>
+				<p class="my-2">Login to post a review</p>
+			</ng-template>
+		</div>
+	</ng-template>
 </section>
+
+<div class="modal-container" *ngIf="showModal" (click)="closeModal($event)">
+	<app-modal (output)="deleteProduct($event)"></app-modal> 
+</div>

@@ -17,13 +17,25 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+	overflow: hidden;
 
-.img:hover {
-	cursor: pointer;
+	&:hover {
+		cursor: pointer;
+	}
+	img {
+		transition: transform .5s ease;
+	}
+	&:hover img {
+		transform: scale(1.25);
+	}
 }
 
 .add {
 	background-color: rgb(234, 239, 241);
-	color: rgb(104, 116, 128);
+	color: rgb(81, 93, 105);
+	border: .1rem solid transparent;
+
+	&:hover {
+		border: .1rem solid rgba(104, 116, 128, 0.411);
+	}
 }

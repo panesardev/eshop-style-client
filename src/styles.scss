@@ -5,23 +5,56 @@
 	outline: none;
 	font-family: 'Open Sans', sans-serif;
 	text-decoration: none;
+	box-sizing: border-box;
 }
 
-body {
-	// background-image: linear-gradient(135deg, #99f, #f99);
-	// background-size: cover;
-	// background-repeat: no-repeat;
-	color: black;
+// body {
+// 	background-image: linear-gradient(135deg, #99f, #f99);
+// 	background-size: cover;
+// 	background-repeat: no-repeat;
+// 	color: $text;
+// }
+
+a {
+	color: $violet;
 }
 
 h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 }
 
+select {
+	border: 2px solid transparent;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+input, select {
+  color: $text;
+  transition: 200ms border-bottom ease;
+	border-bottom: 2px solid transparent;
+  padding: .4rem .6rem;
+	box-shadow:	$shadow;
+	background-color: white;
+	font-size: 1rem;
+  &:focus {
+    border-bottom: 2px solid $violet;
+  }
+  &::placeholder {
+    color: rgb(211, 211, 211);
+  }
+}
+
+textarea {
+  resize: none;
+}
+
 a, button, input, textarea {
 	border-radius: 3px;
-	border: .1rem solid transparent;
-	transition: 300ms;
+	border: 2px solid transparent;
+	transition: 200ms;
+	font-size: 1rem;
 }
 
 a:hover, button:hover {
@@ -66,6 +99,11 @@ section {
 	box-shadow: 0 0 10px rgba(227, 231, 235, 0.788);
 }
 
+.heading {
+	font-family: 'Staatliches';
+	font-size: 2rem;
+}
+
 .divider {
 	margin: 0;
 	padding: 0;
@@ -82,4 +120,66 @@ section {
 
 .green {
 	color: $green;
+}
+
+.route-link {
+	color: $green;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.abs-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-container {
+	background-color: #f7fafc;
+	position: fixed;
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.primary-btn {
+	background-color: $violet;
+	color: white;
+	&:hover {
+		background-color: $violet-hover;
+	}
+}
+
+.accent-btn {
+	background-color: $pink;
+	color: white;
+	&:hover {
+		background-color: $pink-hover;
+	}
+}
+
+.error {
+  padding: .4rem .6rem;
+	border-radius: $radius;
+	background-color: $error-light;
+	color: $error;
+}
+
+.info {
+	border-radius: $radius;
+  padding: .4rem .6rem;
+	background-color: $green-light;
+	color: $green;
+}
+.google-btn {
+	background-color: white;
+	box-shadow: $shadow;
 }

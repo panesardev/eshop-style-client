@@ -1,20 +1,5 @@
 @import '../../../variables.scss';
 
-.hero {
-	.title {
-		font-family: 'nunito';
-		font-size: 3rem;
-		.brand {
-			font-family: 'Lobster';
-			color: rgb(60, 228, 172);
-		}
-	}
-	.disc {
-		font-size: 1.25rem;
-		font-family: 'nunito';
-	}
-}
-
 .heading {
 	font-family: 'Staatliches';
 	font-size: 2rem;
@@ -23,7 +8,7 @@
 .buttons {
 	display: flex;
 	flex-direction: column;
-	height: 100px;
+	height: 50px;
 
 	div {
 		flex-grow: 1;
